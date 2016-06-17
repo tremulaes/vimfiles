@@ -101,6 +101,12 @@ nnoremap <silent> <leader>ev :tabnew $MYVIMRC<cr>
 " source vimrc
 nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 
+"Map <SPACE>r to reveal in NERDTree
+nmap <silent> <leader>r :NERDTreeFind<CR>
+
+"Map <SPACE>n to toggle NERDTree
+nmap <silent> <leader>n :NERDTreeToggle<CR>
+
 " cuke split:
 nmap <silent> <leader>cs :only<cr>:sp<cr><c-]>zz
 " cuke vertsplit:
@@ -139,6 +145,9 @@ autocmd! FileType cucumber
 " nnoremap <silent> <leader>h :tabprev<cr>
 
 nnoremap <silent> <leader>n :tabnext<cr>
+nnoremap <silent> <leader><leader> :noh<cr>
+nnoremap <silent> <leader>ev :e $MYVIMRC<cr>
+nnoremap <silent> <leader>ez :so $MYVIMRC<cr>
 
 augroup Miscellaneous
   au!
@@ -153,5 +162,21 @@ augroup FiletypeDetection
   autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
   autocmd BufRead,BufNewFile *.hamlc set filetype=haml
 augroup END
+
+"Show red line at 80 character mark
+set cc=80
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+    endfunction
+    autocmd BufWritePre     *.rb :call TrimWhiteSpace()
+endfunc
 
 " vim: ft=vim
