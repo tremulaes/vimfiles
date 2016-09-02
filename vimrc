@@ -72,6 +72,8 @@ let mapleader = " "
 
 let g:ctrlp_open_multiple_files = 't'
 let g:ctrlp_switch_buffer = 'eT'
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 40
 
 function! InsertMatchingLines()
   silent! redir => matching_lines
