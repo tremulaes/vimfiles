@@ -78,13 +78,19 @@ let g:ctrlp_use_caching = 0
 set grepprg=ag\ --nogroup\ --nocolor
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-function! InsertMatchingLines()
-  silent! redir => matching_lines
-  silent! g//#
-  silent! redir END
-  silent! put =matching_lines
+" vim markdown preview configuration
+let vim_markdown_preview_github=1
+let vim_markdown_preview_temp_file=1
+let vim_markdown_preview_toggle=2
+let vim_markdown_preview_browser='Google Chrome'
+nnoremap <silent> <leader>md :call Vim_Markdown_Preview_Local()<cr>
+
+function! PrintPutsWith(marker)
+  let output = "puts \"#{'" . a:marker . "'*50} #{REPLACE} #{'" . a:marker . "'*50}\""
+  :execute "normal O". output
 endf
-nnoremap <silent> <leader>gm :call InsertMatchingLines()<cr>
+nnoremap <silent> <leader>pp :call PrintPutsWith('*')<cr>
+command! -nargs=1 PPW call PrintPutsWith(<f-args>)
 
 function! InsertHistory()
   silent! redir => history_to_insert
@@ -169,7 +175,7 @@ augroup FiletypeDetection
 augroup END
 
 "Show red line at 80 character mark
-set cc=80
+set cc=80,100
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
