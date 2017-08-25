@@ -81,9 +81,9 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " vim markdown preview configuration
 let vim_markdown_preview_github=1
 let vim_markdown_preview_temp_file=1
-let vim_markdown_preview_toggle=2
+let vim_markdown_preview_toggle=0
 let vim_markdown_preview_browser='Google Chrome'
-nnoremap <silent> <leader>md :call Vim_Markdown_Preview_Local()<cr>
+let vim_markdown_preview_hotkey='<C-m>'
 
 function! PrintPutsWith(marker)
   let output = "puts \"#{'" . a:marker . "'*50} #{REPLACE} #{'" . a:marker . "'*50}\""
