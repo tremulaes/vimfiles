@@ -75,6 +75,7 @@ let g:ctrlp_switch_buffer = 'eT'
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 let g:ctrlp_use_caching = 0
+let g:ctrlp_show_hidden = 1
 set grepprg=ag\ --nogroup\ --nocolor
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
