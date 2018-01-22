@@ -29,6 +29,7 @@ set autoindent
 set expandtab
 set shiftwidth=2
 set tabstop=2
+set nowrap
 
 set history=40
 
@@ -87,11 +88,17 @@ let vim_markdown_preview_browser='Google Chrome'
 let vim_markdown_preview_hotkey='<C-m>'
 
 function! PrintPutsWith(marker)
-  let output = "puts \"#{'" . a:marker . "'*50} #{REPLACE} #{'" . a:marker . "'*50}\""
+  let output = "puts \"#{'" . a:marker . "'*50} #{} #{'" . a:marker . "'*50}\""
   :execute "normal O". output
 endf
 nnoremap <silent> <leader>pp :call PrintPutsWith('*')<cr>
 command! -nargs=1 PPW call PrintPutsWith(<f-args>)
+
+function! IPythonEmbed()
+  :execute "normal O". "ip.embed()"
+  :execute "normal O". "import IPython as ip"
+endf
+nnoremap <silent> <leader>ip :call IPythonEmbed()<cr>
 
 function! InsertHistory()
   silent! redir => history_to_insert
