@@ -2,6 +2,7 @@ set nocompatible
 
 call pathogen#infect()
 
+filetype plugin indent on
 syntax on
 
 set backupdir=~/.vim/backup
@@ -20,7 +21,6 @@ set lazyredraw
 set splitright
 set splitbelow
 
-filetype plugin indent on
 set ff=unix
 
 set nocindent
