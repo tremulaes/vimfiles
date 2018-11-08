@@ -37,9 +37,6 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = git@github.com:kien/ctrlp.vim.git
-[submodule "bundle/vim-go"]
-	path = bundle/vim-go
-	url = git@github.com:fatih/vim-go.git
 [submodule "bundle/vim-mustache-handlebars"]
 	path = bundle/vim-mustache-handlebars
 	url = git@github.com:mustache/vim-mustache-handlebars.git
@@ -52,9 +49,6 @@
 [submodule "bundle/typescript-vim"]
 	path = bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule "bundle/vim-markdown-preview"]
-	path = bundle/vim-markdown-preview
-	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
 [submodule "bundle/vim-elixir"]
 	path = bundle/vim-elixir
 	url = https://github.com/JamshedVesuna/vim-elixir.git

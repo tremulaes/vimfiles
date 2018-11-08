@@ -80,13 +80,6 @@ let g:ctrlp_show_hidden = 1
 set grepprg=ag\ --nogroup\ --nocolor
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-" vim markdown preview configuration
-let vim_markdown_preview_github=1
-let vim_markdown_preview_temp_file=1
-let vim_markdown_preview_toggle=0
-let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_hotkey='<C-m>'
-
 function! PrintPutsWith(marker)
   let output = "puts \"#{'" . a:marker . "'*50} #{} #{'" . a:marker . "'*50}\""
   :execute "normal O". output
@@ -153,11 +146,6 @@ nnoremap <silent> <leader>tt oThen { false }<esc>b
 nnoremap <silent> <leader>tT oAnd  { false }<esc>b
 nnoremap <silent> <leader>td odescribe 'xxxxxxxxx' do<cr>end<esc>k$bbb
 
-autocmd! FileType cucumber
-      \ if filereadable(expand('$HOME/vimfiles/scripts/tabularize-cuke-tables.vim'))
-      \ | source $HOME/vimfiles/scripts/tabularize-cuke-tables.vim
-      \ | endif
-
 " nnoremap <silent> <leader>j :tabnext<cr>
 " nnoremap <silent> <leader>l :tabnext<cr>
 " nnoremap <silent> <leader>k :tabprev<cr>
@@ -171,7 +159,7 @@ nnoremap <silent> <leader>ez :so $MYVIMRC<cr>
 augroup Miscellaneous
   au!
   " autocmd Filetype markdown setlocal textwidth=78 shiftwidth=4 tabstop=4
-  autocmd Filetype markdown setlocal shiftwidth=4 tabstop=4
+  " autocmd Filetype markdown setlocal shiftwidth=4 tabstop=4
   autocmd Filetype perl     setlocal shiftwidth=4 tabstop=4
 augroup END
 
