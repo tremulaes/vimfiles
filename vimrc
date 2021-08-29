@@ -168,6 +168,7 @@ augroup FiletypeDetection
   autocmd BufNewFile,BufReadPost *.tpl,*.tt setlocal filetype=tt2html
   autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
   autocmd BufRead,BufNewFile *.hamlc set filetype=haml
+  autocmd BufRead,BufNewFile *.jl set filetype=json
 augroup END
 
 "Show red line at 80 character mark
