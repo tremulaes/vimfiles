@@ -60,7 +60,7 @@ set wildignore+=node_modules/**
 
 if has("gui_running")
   set background=dark
-  colorscheme solarized
+  colorscheme nord
 else
   colorscheme elflord
 endif
@@ -124,6 +124,9 @@ nmap <silent> <leader>cs :only<cr>:sp<cr><c-]>zz
 " cuke vertsplit:
 nmap <silent> <leader>cv :only<cr>:vs<cr><c-]>zz
 
+nmap ,cs :let @*=expand("%")<CR>
+nmap ,cl :let @*=expand("%:p")<CR>
+
 nnoremap <leader><bar> :Tabularize /\|/<cr>
 nnoremap <leader>> :Tabularize /=>/<cr>
 nnoremap <leader>= :Tabularize /=/<cr>
@@ -137,15 +140,6 @@ nnoremap <silent> <leader>l :colorscheme solarized<cr>:set background=light<cr>
 
 nnoremap <silent> <leader>pr Orequire 'pry'; binding.pry<esc>
 
-" test snippets
-nnoremap <silent> <leader>tg oGiven { false }<esc>b
-nnoremap <silent> <leader>tG oGiven(:subject) { false }<esc>b
-nnoremap <silent> <leader>tw oWhen { false }<esc>b
-nnoremap <silent> <leader>tW oWhen(:result) { false }<esc>b
-nnoremap <silent> <leader>tt oThen { false }<esc>b
-nnoremap <silent> <leader>tT oAnd  { false }<esc>b
-nnoremap <silent> <leader>td odescribe 'xxxxxxxxx' do<cr>end<esc>k$bbb
-
 " nnoremap <silent> <leader>j :tabnext<cr>
 " nnoremap <silent> <leader>l :tabnext<cr>
 " nnoremap <silent> <leader>k :tabprev<cr>
@@ -155,6 +149,10 @@ nnoremap <silent> <leader>n :tabnext<cr>
 nnoremap <silent> <leader><leader> :noh<cr>
 nnoremap <silent> <leader>ev :e $MYVIMRC<cr>
 nnoremap <silent> <leader>ez :so $MYVIMRC<cr>
+
+" ruby helpers
+nnoremap <silent> <leader>testlog :e web/log/test.log<cr>
+nnoremap <silent> <leader>ftr :set filetype=ruby<cr>
 
 augroup Miscellaneous
   au!
@@ -186,5 +184,8 @@ function! TrimWhiteSpace()
     endfunction
     autocmd BufWritePre     *.rb :call TrimWhiteSpace()
 endfunc
+
+anoremenu 1.1 TouchBar.-flexspace- <Nop>
+tlnoremenu 1.1 TouchBar.-flexspace- <Nop>
 
 " vim: ft=vim
